@@ -17,10 +17,14 @@ add_action( 'after_setup_theme', 'vue_theme_setup' );
 
 function vue_wp_enqueue_scripts() {
 
+	$ver  = '1.0.0';
+	$root = get_bloginfo( 'stylesheet_directory' );
+
 	wp_enqueue_style( 'vue-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' );
 	wp_enqueue_style( 'vue-styles', get_bloginfo( 'stylesheet_url' ) );
 	
-
+	wp_enqueue_script( 'vue', $root . '/js/vue.min.js', false, $ver, true );
+	wp_enqueue_script( 'vuetiful', $root . '/js/vuetiful.js', array( 'vue' ), $ver, true );
 }
 add_action( 'wp_enqueue_scripts', 'vue_wp_enqueue_scripts' );
 
