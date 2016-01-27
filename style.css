@@ -23,12 +23,11 @@ h2,
 h3,
 h4,
 h5,
-h6 { font-weight: 400; }
+h6 { font-weight: 400; padding-bottom: 0.3em; }
 
 a { color: #777; text-decoration: none; cursor: pointer; }
 a:hover { color: #222; }
 a img { border: 0; }
-ul { list-style: none; }
 p { padding-bottom: 15px; }
 
 input, textarea, select { font-size: 12px; font-family: arial, sans-serif; }
@@ -77,6 +76,15 @@ h4.widget-title { font-weight: 700; padding-bottom: 5px; margin-bottom: 5px; bor
 .widget_search label { display: block; }
 .widget_search input[type="search"] { width: 100%; display: block; box-sizing: border-box; border: 1px solid #42b983; color: #666; padding: 2px 5px; }
 .widget_search input[type="submit"] { position: absolute; top: 0; right: 0; width: 60px; height: 20px; color: #fff; border: 0; background: #42b983; cursor: pointer; }
+
+.page-content ul,
+.page-content ol { list-style-position: inside; padding: 0 0 14px 14px; }
+.page-content ul ul,
+.page-content ul ol,
+.page-content ol ul,
+.page-content ol ol { padding-bottom: 0; }
+.page-content img.alignleft { margin: 0 14px 14px 0; }
+.page-content img.alignright { margin: 0 0 14px 14px; }
 
 @media screen and (max-width: 768px) {
 	.content,

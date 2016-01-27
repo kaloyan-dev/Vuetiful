@@ -5,6 +5,7 @@ function vue_theme_setup() {
 	include_once( 'includes/carbon-fields/vendor/autoload.php' );
 	include_once( 'options/theme-options.php' );
 	include_once( 'options/shortcodes.php' );
+	include_once( 'includes/helpers.php' );
 
 	add_theme_support( 'html5' );
 
