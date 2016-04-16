@@ -43,6 +43,7 @@ textarea { overflow: auto; }
 
 .header .shell,
 .page-entry,
+.pagination,
 .footer .shell,
 .widget { background: #fff; border-bottom: 1px solid #42b983; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); border-radius: 4px; }
 
@@ -63,12 +64,17 @@ textarea { overflow: auto; }
 .navigation li.current-menu-item a { color: #fff; background: #42b983; }
 .navigation a { font-size: 12px; line-height: 15px; display: block; padding: 2px 14px; }
 
+.page-head { padding-bottom: 15px; }
+.page-head a { font-size: 20px; line-height: 24px; }
+
 .page-entry { padding: 20px; }
 .page-entry + .page-entry { margin-top: 20px; }
 .page-entry a.read-more { color: #42b983; }
 
-.page-head { padding-bottom: 15px; }
-.page-head a { font-size: 20px; line-height: 24px; }
+.pagination { margin-top: 20px; font-size: 0; line-height: 0; padding: 0 5px; }
+.pagination a { display: inline-block; vertical-align: top; font-size: 14px; line-height: 24px; min-width: 24px; text-align: center; margin: 10px 5px; }
+.pagination a { color: #42b983; border: 1px solid #42b983; border-radius: 4px; }
+.pagination a.current { color: #fff; background: #42b983; border-color: #42b983; }
 
 .page-content ul,
 .page-content ol { list-style-position: inside; padding: 0 0 14px 14px; }
