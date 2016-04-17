@@ -45,7 +45,7 @@ textarea { overflow: auto; }
 .page-entry,
 .pagination,
 .footer .shell,
-.widget { background: #fff; border-bottom: 1px solid #42b983; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); border-radius: 4px; }
+.widget { background: #fff; border-bottom: 2px solid #42b983; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); border-radius: 4px; }
 
 .header { padding: 20px; }
 .header .shell { max-width: 1160px; padding: 10px 20px 0; background: #fff; }
@@ -65,7 +65,7 @@ textarea { overflow: auto; }
 .navigation a { font-size: 12px; line-height: 15px; display: block; padding: 2px 14px; }
 
 .page-head { padding-bottom: 15px; }
-.page-head a { font-size: 20px; line-height: 24px; }
+.page-head h3 { font-size: 20px; line-height: 24px; }
 
 .page-entry { padding: 20px; }
 .page-entry + .page-entry { margin-top: 20px; }
@@ -84,6 +84,7 @@ textarea { overflow: auto; }
 .page-content ol ol { padding-bottom: 0; }
 .page-content img.alignleft { margin: 0 14px 14px 0; }
 .page-content img.alignright { margin: 0 0 14px 14px; }
+.page-content p { padding-bottom: 18px; }
 
 .footer { padding: 0 0 20px; }
 .footer .shell { padding: 10px 0; }
