@@ -25,7 +25,7 @@ h4,
 h5,
 h6 { font-weight: 400; padding-bottom: 0.3em; }
 
-a { color: #777; text-decoration: none; cursor: pointer; }
+a { color: #777; text-decoration: none; cursor: pointer; transition: color 0.3s; }
 a:hover { color: #42b983; }
 a img { border: 0; }
 p { padding-bottom: 15px; }
@@ -50,6 +50,8 @@ textarea { overflow: auto; }
 .header { padding: 20px; }
 .header .shell { max-width: 1160px; padding: 10px 20px 0; background: #fff; }
 .header h1 { letter-spacing: 2px; }
+.header h1 a { color: #000; }
+.header h1 a:hover { color: #42b983; }
 .header h2 { color: #666; font-size: 13px; line-height: 18px; font-style: italic; }
 
 .main { padding: 0 20px; }
