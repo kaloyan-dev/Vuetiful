@@ -5,12 +5,14 @@ the_post();
 <div class="main">
 	<div class="shell">
 		<div class="content">
-			<div class="page-head">
-				<?php the_title( '<h3>', '</h3>' ); ?>
-			</div>
+			<div class="page-entry">
+				<div class="page-head">
+					<?php the_title( '<h3>', '</h3>' ); ?>
+				</div>
 
-			<div class="page-content">
-				<?php the_content(); ?>				
+				<div class="page-content">
+					<?php the_content(); ?>				
+				</div>
 			</div>
 		</div>
 
