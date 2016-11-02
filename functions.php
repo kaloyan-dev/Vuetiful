@@ -1,10 +1,6 @@
 <?php
 
 function vue_theme_setup() {
-
-	include_once( 'includes/carbon-fields/vendor/autoload.php' );
-	include_once( 'options/theme-options.php' );
-	include_once( 'options/shortcodes.php' );
 	include_once( 'includes/filters.php' );
 	include_once( 'includes/helpers.php' );
 
@@ -20,7 +16,7 @@ add_action( 'after_setup_theme', 'vue_theme_setup' );
 
 function vue_wp_enqueue_scripts() {
 
-	$ver  = '1.0.0';
+	$ver  = '1.0.1';
 	$root = get_bloginfo( 'stylesheet_directory' );
 
 	wp_enqueue_style( 'vue-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' );
