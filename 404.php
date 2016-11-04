@@ -4,11 +4,11 @@
 		<div class="content">
 			<div class="page-entry">
 				<div class="page-head">
-					<h3><?php _e( '404 - Page Not Found', 'vue' ); ?></h3>
+					<h3><?php _e( '404 - Page Not Found', 'vuetiful' ); ?></h3>
 				</div>
 
 				<div class="page-content">
-					<?php printf( __( 'Go back to the <a href="%s">homepage</a>.', 'vue' ), home_url( '/' ) ); ?>
+					<?php printf( __( 'Go back to the <a href="%s">homepage</a>.', 'vuetiful' ), home_url( '/' ) ); ?>
 				</div>
 			</div>
 		</div>

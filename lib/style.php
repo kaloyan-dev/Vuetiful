@@ -1,6 +1,14 @@
 <?php
 
-$theme_color = '#42b983';
+$theme_color_option = get_option( 'vuetiful-theme-color' );
+$theme_colors       = vuetiful_get_theme_colors();
+$theme_color_names  = array_keys( $theme_colors );
+
+if ( ! in_array( $theme_color_option, $theme_color_names ) ) {
+	$theme_color_option = $theme_color_names[0];
+}
+
+$theme_color = $theme_colors[ $theme_color_option ][1];
 
 $css = <<<CSS
 * { margin: 0; padding: 0; outline: 0; }
