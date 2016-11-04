@@ -115,8 +115,8 @@ h4.widget-title { font-weight: 700; padding-bottom: 5px; margin-bottom: 5px; bor
 .widget_search .screen-reader-text { display: none; }
 .widget_search form { position: relative; padding-right: 60px; }
 .widget_search label { display: block; }
-.widget_search input[type="search"] { width: 100%; display: block; box-sizing: border-box; border: 1px solid {$theme_color}; color: #666; padding: 2px 5px; }
-.widget_search input[type="submit"] { position: absolute; top: 0; right: 0; width: 60px; height: 22px; color: #fff; border: 0; background: {$theme_color}; cursor: pointer; }
+.widget_search input[type="search"] { width: 100%; display: block; box-sizing: border-box; border: 1px solid {$theme_color}; color: #666; padding: 5px 8px; border-radius: 4px 0 0 4px; }
+.widget_search input[type="submit"] { position: absolute; top: 0; right: 0; width: 60px; height: 28px; color: #fff; border: 0; background: {$theme_color}; cursor: pointer; border-radius: 0 4px 4px 0; }
 
 @media screen and (max-width: 768px) {
 	.content,
