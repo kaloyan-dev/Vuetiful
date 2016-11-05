@@ -5,7 +5,7 @@ function vuetiful_beautify( $text ) {
 }
 
 function vuetiful_get_theme_colors() {
-	return array(
+	return apply_filters( 'vuetiful_theme_colors', array(
 		'turquoise'     => array( 'Turquoise', '#1abc9c' ),
 		'emerald'       => array( 'Emerald', '#2ecc71' ),
 		'peter_river'   => array( 'Peter River', '#3498db' ),
@@ -26,7 +26,7 @@ function vuetiful_get_theme_colors() {
 		'pomegranate'   => array( 'Pomegranate', '#c0392b' ),
 		'silver'        => array( 'Silver', '#bdc3c7' ),
 		'asbestos'      => array( 'Asbestos', '#7f8c8d' ),
-	);
+	) );
 }
 
 function vuetiful_get_theme_data() {
