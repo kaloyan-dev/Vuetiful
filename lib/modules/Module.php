@@ -7,11 +7,5 @@ class Module {
 		$module_manager  = Module_Manager::instance();
 
 		$module_manager::$modules[] = $module_name;
-
-		$this->setup();
-	}
-
-	public function setup() {
-
 	}
 }
