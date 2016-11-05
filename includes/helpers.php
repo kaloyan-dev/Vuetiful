@@ -1,5 +1,9 @@
 <?php
 
+function vuetiful_beautify( $text ) {
+	return ucwords( preg_replace( '~[-|_]~', ' ', sanitize_title( $text ) ) );
+}
+
 function vuetiful_get_theme_colors() {
 	return array(
 		'turquoise'     => array( 'Turquoise', '#1abc9c' ),

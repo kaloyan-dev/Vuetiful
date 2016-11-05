@@ -11,6 +11,7 @@ function vutiful_admin_init() {
 	}
 
 	update_option( 'vuetiful-theme-color', vuetiful_request( 'vuetiful_theme_color' ) );
+	update_option( 'vuetiful-modules', vuetiful_request( 'vuetiful_modules' ) );
 }
 add_action( 'admin_init', 'vutiful_admin_init' );
 
