@@ -18,12 +18,11 @@ class Module_Manager {
 	public function get_modules() {
 		self::$modules  = array();
 
-		$modules_dir = get_template_directory() . '/modules/';
-		$modules     = array_diff( scandir( $modules_dir ), array( '..', '.' ) );
+		$modules = array_diff( scandir( VUETIFUL_MODULES_DIR ), array( '..', '.' ) );
 
 		foreach ( $modules as $module ) {
 
-			if ( ! file_exists( $modules_dir . $module . '/module.php' ) ) {
+			if ( ! file_exists( VUETIFUL_MODULES_DIR . $module . '/module.php' ) ) {
 				continue;
 			}
 
@@ -36,7 +35,6 @@ class Module_Manager {
 	public function load_modules() {
 		$modules_list   = $this->get_modules();
 		$loaded_modules = get_option( 'vuetiful-modules' );
-		$modules_dir    = get_template_directory() . '/modules/';
 
 		if ( ! is_array( $loaded_modules ) || ! $loaded_modules ) {
 			return;
@@ -45,7 +43,7 @@ class Module_Manager {
 		$modules_to_load = array_intersect( $modules_list, $loaded_modules );
 		
 		foreach ( $modules_to_load as $module ) {
-			include( $modules_dir . $module . '/module.php' );
+			include( VUETIFUL_MODULES_DIR . $module . '/module.php' );
 		}
 	}
 }

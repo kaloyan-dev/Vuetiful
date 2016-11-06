@@ -1,5 +1,7 @@
 <?php
 
+! defined( 'VUETIFUL_MODULES_DIR' ) ? define( 'VUETIFUL_MODULES_DIR', get_template_directory() . '/modules/' ) : null;
+
 function vuetiful_theme_setup() {
 	include_once( 'lib/modules/Module.php' );
 	include_once( 'lib/modules/Module_Manager.php' );
