@@ -4,6 +4,14 @@ function vuetiful_beautify( $text ) {
 	return ucwords( preg_replace( '~[-|_]~', ' ', sanitize_title( $text ) ) );
 }
 
+function vuetiful_get_option_names() {
+	return array(
+		'vuetiful-theme-color' => 'vuetiful_theme_color',
+		'vuetiful-modules'     => 'vuetiful_modules',
+		'vuetiful-favicon'     => 'vuetiful_favicon',
+	);
+}
+
 function vuetiful_get_theme_colors() {
 	return apply_filters( 'vuetiful_theme_colors', array(
 		'turquoise'     => array( 'Turquoise', '#1abc9c' ),
@@ -32,11 +40,21 @@ function vuetiful_get_theme_colors() {
 function vuetiful_get_theme_data() {
 	$theme_color       = get_option( 'vuetiful-theme-color' );
 	$theme_colors      = vuetiful_get_theme_colors();
-	$theme_color_names = array_keys( $theme_colors );
+	$theme_color_names = array_keys( $theme_colors );	
+	$favicon_id        = get_option( 'vuetiful-favicon' );
+	$favicon_url       = '';
+
+	if ( $favicon_id ) {
+		$favicon_url = wp_get_attachment_url( $favicon_id );
+	}
 
 	return array(
-		'themeColor'  => in_array( $theme_color, $theme_color_names ) ? $theme_color : $theme_color_names[0],
-		'themeColors' => $theme_colors,
+		'themeColor'    => in_array( $theme_color, $theme_color_names ) ? $theme_color : $theme_color_names[0],
+		'themeColors'   => $theme_colors,
+		'faviconID'     => $favicon_id,
+		'faviconURL'    => $favicon_url,
+		'faviconTitle'  => __( 'Select a Favicon', 'vuetiful' ),
+		'faviconButton' => __( 'Pick Favicon', 'vuetiful' ),
 	);
 }
 

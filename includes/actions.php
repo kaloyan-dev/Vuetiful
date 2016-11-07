@@ -1,7 +1,6 @@
 <?php
 
-function vutiful_admin_init() {
-	
+function vutiful_update_options() {	
 	if ( ! vuetiful_request( 'vuetiful_update_options_field' ) ) {
 		return;
 	}
@@ -10,10 +9,13 @@ function vutiful_admin_init() {
 		return;
 	}
 
-	update_option( 'vuetiful-theme-color', vuetiful_request( 'vuetiful_theme_color' ) );
-	update_option( 'vuetiful-modules', vuetiful_request( 'vuetiful_modules' ) );
+	$option_names = vuetiful_get_option_names();
+
+	foreach ( $option_names as $request_param => $option_name ) {
+		update_option( $request_param, vuetiful_request( $option_name ) );
+	}
 }
-add_action( 'admin_init', 'vutiful_admin_init' );
+add_action( 'admin_init', 'vutiful_update_options' );
 
 function vuetiful_admin_add() {
 	add_submenu_page(
@@ -80,3 +82,16 @@ function vuetiful_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'vuetiful_widgets_init' );
+
+function vuetiful_favicon() {
+	$favicon_id = get_option( 'vuetiful-favicon' );
+
+	if ( ! $favicon_id ) {
+		return;
+	}
+
+	$favicon_url = wp_get_attachment_url( $favicon_id ); ?>
+	<link rel="shortcut icon" href="<?php echo $favicon_url; ?>" />
+	<?php
+}
+add_action( 'wp_head', 'vuetiful_favicon' );

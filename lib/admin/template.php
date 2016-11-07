@@ -2,14 +2,27 @@
 	<div id="vuetiful-admin" v-cloak>
 		<h1><?php _e( 'Vuetiful Options', 'vuetiful' ); ?></h1>
 		<form action="<?php echo add_query_arg( 'page', 'vuetiful-admin.php', admin_url( 'options-general.php' ) ); ?>" method="post">
-			<h2><?php _e( 'Theme Color', 'vuetiful' ); ?></h2>
 			
-			<div class="vuetiful-colors">
-				<a v-for="(value, key) in colors" @click.prevent="setThemeColor( key )" :title=value[0] :class="{ selected: key === themeColor }" :style="{ backgroundColor: value[1] }" href="#"></a>
+			<!-- Favicon -->
+			<h2><?php _e( 'Favicon', 'vuetiful' ); ?></h2>
+			<div class="vuetiful-favicon">
+				<div class="vuetiful-favicon-preview" v-if="faviconURL">
+					<img :src="faviconURL" alt="" />
+					<a href="#" @click.prevent="removeFavicon">x</a>
+				</div>
+				<input type="hidden" name="vuetiful_favicon" v-model="faviconID" />
+				<input type="hidden" v-model="faviconURL" />
+				<input type="submit" class="button" value="<?php _e( 'Pick Favicon', 'vuetiful' ); ?>" @click.prevent="pickFavicon" />
 			</div>
 
-			<input type="hidden" class="vuetiful-color-selected" name="vuetiful_theme_color" v-model="themeColor" />
+			<!-- Theme Color -->
+			<h2><?php _e( 'Theme Color', 'vuetiful' ); ?></h2>
+			<div class="vuetiful-colors">
+				<a v-for="(value, key) in themeColors" @click.prevent="setThemeColor( key )" :title=value[0] :class="{ selected: key === themeColor }" :style="{ backgroundColor: value[1] }" href="#"></a>
+				<input type="hidden" class="vuetiful-color-selected" name="vuetiful_theme_color" v-model="themeColor" />
+			</div>
 
+			<!-- Modules -->
 			<h2><?php _e( 'Modules', 'vuetiful' ); ?></h2>
 			<?php
 				$module_manager = Vuetiful\Module_Manager::instance();
