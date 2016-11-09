@@ -7,23 +7,24 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-	<div class="header">
-		<div class="shell">
-			<h1><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2><?php bloginfo( 'description' ); ?></h2>
+	<div id="vuetiful">
+		<div class="header">
+			<div class="shell">
+				<h1><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+				<h2><?php bloginfo( 'description' ); ?></h2>
 
-			<div class="navigation">
-				<?php
-					$args = array(
-						'theme_location' => 'main-menu',
-						'container'      => false,
-						'menu_class'     => false,
-						'fallback_cb'    => false,
-						'depth'          => 0,
-					);
-				
-					wp_nav_menu( $args );
-				?>
+				<div class="navigation">
+					<?php
+						$args = array(
+							'theme_location' => 'main-menu',
+							'container'      => false,
+							'menu_class'     => false,
+							'fallback_cb'    => false,
+							'depth'          => 0,
+						);
+					
+						wp_nav_menu( $args );
+					?>
+				</div>
 			</div>
 		</div>
-	</div>

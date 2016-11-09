@@ -39,10 +39,43 @@ function vuetiful_get_theme_colors() {
 
 function vuetiful_get_theme_data() {
 
-	$posts_data = [];
+	$posts = get_posts( array(
+		'posts_per_page' => -1,
+	) );
+
+	$posts_per_page = get_option( 'posts_per_page' );	
+	$posts_data     = array();
+	$post_pages     = 1;
+	$post_count     = 1;
+
+	foreach ( $posts as $p ) {
+		if ( $post_count > $posts_per_page ) {
+			$post_count = 1;
+			$post_pages++;
+		}
+
+		$post_id      = $p->ID;
+		$post_title   = $p->post_title;
+		$post_content = strip_tags( $p->post_content );
+		$post_excerpt = wp_trim_words( $post_content, 55 );
+		$post_trimmed = ( strip_tags( $post_content ) !== $post_excerpt );
+		$post_url     = get_permalink( $post_id );
+		$post_page    = $post_pages;
+
+		$posts_data[] = array(
+			'title'   => $post_title,
+			'content' => $post_trimmed ? wpautop( $post_excerpt ) : wpautop( $post_content ),
+			'url'     => $post_url,
+			'page'    => $post_page,
+			'trimmed' => $post_trimmed ? 1 : 0,
+		);
+
+		$post_count++;
+	}
 
 	return array(
-		'posts' => $posts_data
+		'posts' => $posts_data,
+		'pages' => $post_pages,
 	);
 }
 
