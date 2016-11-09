@@ -39,6 +39,11 @@ function vuetiful_get_theme_colors() {
 
 function vuetiful_get_theme_data() {
 
+	$posts_data = [];
+
+	return array(
+		'posts' => $posts_data
+	);
 }
 
 function vuetiful_get_theme_admin_data() {
