@@ -55,7 +55,7 @@ function vuetiful_admin_enqueue_scripts() {
 
 	$theme_color = get_option( 'vuetiful-theme-color' );
 
-	wp_localize_script( 'vuetiful-admin', 'vuetifulData', vuetiful_get_theme_data() );
+	wp_localize_script( 'vuetiful-admin', 'vuetifulData', vuetiful_get_theme_admin_data() );
 }
 add_action( 'admin_enqueue_scripts', 'vuetiful_admin_enqueue_scripts' );
 
@@ -68,6 +68,8 @@ function vuetiful_wp_enqueue_scripts() {
 	
 	wp_enqueue_script( 'vue', $root . '/js/vue.min.js', false, $ver, true );
 	wp_enqueue_script( 'vuetiful', $root . '/js/vuetiful.js', array( 'vue' ), $ver, true );
+
+	wp_localize_script( 'vuetiful-admin', 'vuetifulData', vuetiful_get_theme_data() );
 }
 add_action( 'wp_enqueue_scripts', 'vuetiful_wp_enqueue_scripts' );
 

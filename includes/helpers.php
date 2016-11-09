@@ -38,6 +38,10 @@ function vuetiful_get_theme_colors() {
 }
 
 function vuetiful_get_theme_data() {
+
+}
+
+function vuetiful_get_theme_admin_data() {
 	$theme_color       = get_option( 'vuetiful-theme-color' );
 	$theme_colors      = vuetiful_get_theme_colors();
 	$theme_color_names = array_keys( $theme_colors );	
