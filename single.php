@@ -11,7 +11,13 @@ the_post();
 						<?php the_title( '<h3>', '</h3>' ); ?>
 					</div>
 					<div class="page-content">
-						<?php the_content();  ?>
+						<?php
+							the_content();
+							
+							if ( comments_open() ):
+								comments_template();
+							endif;
+						?>
 					</div>
 				</div>
 			</div>

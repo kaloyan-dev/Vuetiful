@@ -93,6 +93,29 @@ textarea { overflow: auto; }
 .page-content img.alignright { margin: 0 0 14px 14px; }
 .page-content p { padding-bottom: 18px; }
 
+.comments-area { border-top: 1px solid {$theme_color}; padding-top: 20px; }
+.comments-title { font-weight: bold; }
+.comment-list,
+.comment-list .children { list-style: none; }
+.comment-list .children { padding: 20px 0 0 50px; }
+.comment-list li + li { padding-top: 20px; }
+.comment-author.vcard { overflow: hidden; padding-bottom: 10px; }
+.comment-author.vcard > img { float: left; margin-right: 10px; }
+.comment-author.vcard > .fn { line-height: 32px; color: {$theme_color}; }
+.comment-metadata { padding-bottom: 10px; }
+
+.comment-respond { padding-top: 10px; }
+.comment-respond input[type="text"],
+.comment-respond input[type="email"],
+.comment-respond input[type="url"],
+.comment-respond textarea { box-sizing: border-box; width: 100%; padding: 5px; color: {$theme_color}; border: 1px solid {$theme_color}; }
+.comment-respond input[type="submit"] { display: block; margin-top: 10px; padding: 5px 10px; border: 0; color: #fff; background: {$theme_color}; cursor: pointer; }
+
+#respond label { display: block; padding-bottom: 5px; }
+#respond h3 { padding-bottom: 5px; }
+#respond p,
+#respond .logged-in-as { padding-bottom: 5px; }
+
 .footer { padding: 0 0 20px; }
 .footer .shell { padding: 10px 0; }
 .footer p { padding-bottom: 0; text-align: center; }
