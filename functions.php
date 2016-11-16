@@ -18,5 +18,13 @@ function vuetiful_theme_setup() {
 
 	$module_manager = Vuetiful\Module_Manager::instance();
 	$module_manager->load_modules();
+
+	if ( ! isset( $content_width ) ) {
+		$content_width = 860;
+	}
+
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'automatic-feed-links' );
 }
 add_action( 'after_setup_theme', 'vuetiful_theme_setup' );

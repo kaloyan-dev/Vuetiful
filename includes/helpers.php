@@ -54,13 +54,13 @@ function vuetiful_get_theme_data() {
 			$post_pages++;
 		}
 
-		$post_id      = $p->ID;
-		$post_title   = $p->post_title;
-		$post_content = strip_tags( $p->post_content );
-		$post_excerpt = wp_trim_words( $post_content, 55 );
-		$post_trimmed = ( strip_tags( $post_content ) !== $post_excerpt );
-		$post_url     = get_permalink( $post_id );
-		$post_page    = $post_pages;
+		$post_id        = $p->ID;
+		$post_title     = $p->post_title;
+		$post_content   = strip_tags( $p->post_content );
+		$post_excerpt   = wp_trim_words( $post_content, 55 );
+		$post_trimmed   = ( strip_tags( $post_content ) !== $post_excerpt );
+		$post_url       = get_permalink( $post_id );
+		$post_page      = $post_pages;
 
 		$posts_data[] = array(
 			'title'   => $post_title,

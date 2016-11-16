@@ -18,8 +18,7 @@ function vutiful_update_options() {
 add_action( 'admin_init', 'vutiful_update_options' );
 
 function vuetiful_admin_add() {
-	add_submenu_page(
-		'options-general.php',
+	add_theme_page(
 		__( 'Vuetiful Options', 'vuetiful' ),
 		__( 'Vuetiful Options', 'vuetiful' ),
 		'manage_options',
@@ -30,7 +29,7 @@ function vuetiful_admin_add() {
 add_action( 'admin_menu', 'vuetiful_admin_add' );
 
 function vuetiful_admin_render() {
-	include( get_template_directory() . '/lib/admin/template.php' );
+	get_template_part( 'lib/admin/template' );
 }
 
 function vuetiful_styles() {
@@ -39,14 +38,14 @@ function vuetiful_styles() {
 	}
 
 	header( "Content-type: text/css" );
-	include( get_template_directory() . '/lib/style.php' );
+	get_template_part( 'lib/style' );
 	exit;
 }
 add_action( 'template_redirect', 'vuetiful_styles', 1 );
 
 function vuetiful_admin_enqueue_scripts() {
 	$ver  = vuetiful_get_version();
-	$root = get_bloginfo( 'stylesheet_directory' );
+	$root = esc_url( get_stylesheet_directory_uri() );
 
 	wp_enqueue_style( 'vuetiful-admin-styles', $root . '/lib/admin/style.css', false, $ver );
 	
@@ -61,7 +60,11 @@ add_action( 'admin_enqueue_scripts', 'vuetiful_admin_enqueue_scripts' );
 
 function vuetiful_wp_enqueue_scripts() {
 	$ver  = vuetiful_get_version();
-	$root = get_bloginfo( 'stylesheet_directory' );
+	$root = esc_url( get_stylesheet_directory_uri() );
+
+	if ( is_singular() ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
 
 	wp_enqueue_style( 'vuetiful-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' );
 	wp_enqueue_style( 'vuetiful-styles', add_query_arg( 'vuetiful-styles', $ver, home_url( '/' ) ), false, $ver );
@@ -85,7 +88,7 @@ function vuetiful_widgets_init() {
 }
 add_action( 'widgets_init', 'vuetiful_widgets_init' );
 
-function vuetiful_favicon() {
+function vuetiful_wp_head() {
 	$favicon_id = get_option( 'vuetiful-favicon' );
 
 	if ( ! $favicon_id ) {
@@ -96,4 +99,4 @@ function vuetiful_favicon() {
 	<link rel="shortcut icon" href="<?php echo $favicon_url; ?>" />
 	<?php
 }
-add_action( 'wp_head', 'vuetiful_favicon' );
+add_action( 'wp_head', 'vuetiful_wp_head' );

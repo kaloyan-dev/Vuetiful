@@ -43,7 +43,7 @@ class Module_Manager {
 		$modules_to_load = array_intersect( $modules_list, $loaded_modules );
 		
 		foreach ( $modules_to_load as $module ) {
-			include( VUETIFUL_MODULES_DIR . $module . '/module.php' );
+			get_template_part( VUETIFUL_MODULES_DIR . $module . '/module' );
 		}
 	}
 }
