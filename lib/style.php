@@ -50,7 +50,7 @@ textarea { overflow: auto; }
 .page-entry,
 .pagination,
 .footer .shell,
-.widget { background: #fff; border-bottom: 2px solid {$theme_color}; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); border-radius: 4px; }
+.widget { background: #fff; border-bottom: 2px solid {$theme_color}; box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); border-radius: 2px; }
 
 .header { padding: 20px; }
 .header .shell { max-width: 1160px; padding: 10px 20px 0; background: #fff; }
@@ -80,7 +80,7 @@ textarea { overflow: auto; }
 
 .pagination { margin-top: 20px; font-size: 0; line-height: 0; padding: 0 5px; }
 .pagination a { display: inline-block; vertical-align: top; font-size: 14px; line-height: 24px; min-width: 24px; text-align: center; margin: 10px 5px; }
-.pagination a { color: {$theme_color}; border: 1px solid {$theme_color}; border-radius: 4px; }
+.pagination a { color: {$theme_color}; border: 1px solid {$theme_color}; border-radius: 2px; }
 .pagination a.current { color: #fff; background: {$theme_color}; border-color: {$theme_color}; }
 
 .page-content ul,
@@ -138,8 +138,8 @@ h4.widget-title { font-weight: 700; padding-bottom: 5px; margin-bottom: 5px; bor
 .widget_search .screen-reader-text { display: none; }
 .widget_search form { position: relative; padding-right: 60px; }
 .widget_search label { display: block; }
-.widget_search input[type="search"] { width: 100%; display: block; box-sizing: border-box; border: 1px solid {$theme_color}; color: #666; padding: 5px 8px; border-radius: 4px 0 0 4px; }
-.widget_search input[type="submit"] { position: absolute; top: 0; right: 0; width: 60px; height: 28px; color: #fff; border: 0; background: {$theme_color}; cursor: pointer; border-radius: 0 4px 4px 0; }
+.widget_search input[type="search"] { width: 100%; display: block; box-sizing: border-box; border: 1px solid {$theme_color}; color: #666; padding: 5px 8px; border-radius: 2px 0 0 2px; }
+.widget_search input[type="submit"] { position: absolute; top: 0; right: 0; width: 60px; height: 28px; color: #fff; border: 0; background: {$theme_color}; cursor: pointer; border-radius: 0 2px 2px 0; }
 
 @media screen and (max-width: 768px) {
 	.content,
