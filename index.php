@@ -3,7 +3,7 @@
 	<div class="shell">
 		<div class="content">
 			<div class="page-content">
-				<div class="page-entry <?php echo implode( ' ', get_post_class() ); ?>" v-for="post in posts" v-if="post.page === currentPage">
+				<div class="page-entry" :class="post.class" v-for="post in posts" v-if="post.page === currentPage">
 					<div class="page-head">
 						<a :href="post.url">
 							<h3>{{ post.title }}</h3>

@@ -68,6 +68,7 @@ function vuetiful_get_theme_data() {
 			'url'     => $post_url,
 			'page'    => $post_page,
 			'trimmed' => $post_trimmed ? 1 : 0,
+			'class'   => implode( ' ', get_post_class( '', $post_id ) ),
 		);
 
 		$post_count++;
