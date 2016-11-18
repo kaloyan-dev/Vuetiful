@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div id="vuetiful-admin" v-cloak>
 		<h1><?php _e( 'Vuetiful Options', 'vuetiful' ); ?></h1>
-		<form action="<?php echo add_query_arg( 'page', 'vuetiful-admin.php', admin_url( 'options-general.php' ) ); ?>" method="post">
+		<form action="<?php echo add_query_arg( 'page', 'vuetiful-admin.php', admin_url( 'themes.php' ) ); ?>" method="post">
 			
 			<!-- Favicon -->
 			<h2><?php _e( 'Favicon', 'vuetiful' ); ?></h2>
