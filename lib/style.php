@@ -11,6 +11,7 @@ if ( ! in_array( $theme_color_option, $theme_color_names ) ) {
 $theme_color = $theme_colors[ $theme_color_option ][1];
 
 $css = <<<CSS
+
 * { margin: 0; padding: 0; outline: 0; }
 
 body, html { height: 100%; }
@@ -38,6 +39,8 @@ img { max-width: 100%; height: auto; }
 
 input, textarea, select { font-size: 14px; font-family: arial, sans-serif; }
 textarea { overflow: auto; }
+
+[v-cloak] { display: none; }
 
 .cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
 .notext { font-size: 0; line-height: 0; text-indent: -4000px; }

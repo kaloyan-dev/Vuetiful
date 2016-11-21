@@ -6,7 +6,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div id="vuetiful">
+	<div id="vuetiful" v-cloak>
 		<div class="header">
 			<div class="shell">
 				<h1><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
