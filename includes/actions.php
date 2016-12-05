@@ -32,6 +32,16 @@ function vuetiful_admin_render() {
 	get_template_part( 'lib/admin/template' );
 }
 
+function vuetiful_pre_get_posts( $query ) {
+
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', -1 );
+}
+add_action( 'pre_get_posts', 'vuetiful_pre_get_posts' );
+
 function vuetiful_styles() {
 	if ( ! isset( $_GET['vuetiful-styles'] ) ) {
 		return;

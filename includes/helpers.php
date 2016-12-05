@@ -38,21 +38,19 @@ function vuetiful_get_theme_colors() {
 }
 
 function vuetiful_get_theme_data() {
+	global $wp_query;
 
-	$post_args = array(
-		'posts_per_page' => -1,
-	);
-
-	if ( is_search() ) {
-		$post_args['s'] = get_search_query();
-	}
-
-	$posts = get_posts( $post_args );
-
-	$posts_per_page = get_option( 'posts_per_page' );	
-	$posts_data     = array();
-	$post_pages     = 1;
-	$post_count     = 1;
+	$query_args               = $wp_query->query_vars;
+	$query_args['tax_query']  = $wp_query->tax_query;
+	$query_args['meta_query'] = $wp_query->meta_query;
+	$query_args['date_query'] = $wp_query->date_query;
+	
+	$posts                    = get_posts( $query_args );
+	
+	$posts_per_page           = get_option( 'posts_per_page' );	
+	$posts_data               = array();
+	$post_pages               = 1;
+	$post_count               = 1;
 
 	foreach ( $posts as $p ) {
 		if ( $post_count > $posts_per_page ) {
