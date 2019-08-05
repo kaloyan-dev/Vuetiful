@@ -54,6 +54,8 @@ function vuetiful_styles() {
 add_action( 'template_redirect', 'vuetiful_styles', 1 );
 
 function vuetiful_admin_enqueue_scripts() {
+	wp_enqueue_media();
+	
 	$ver  = vuetiful_get_version();
 	$root = esc_url( get_stylesheet_directory_uri() );
 
