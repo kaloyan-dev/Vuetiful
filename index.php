@@ -10,6 +10,10 @@
 						</a>
 					</div>
 					<div class="page-content">
+						<div class="post-thumbnail" v-if="post.thumbnail">
+							<img :src="post.thumbnail" alt="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image">
+						</div>
+
 						<div v-html="post.content">
 							
 						</div>
