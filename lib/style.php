@@ -96,6 +96,8 @@ textarea { overflow: auto; }
 .page-content img.alignright { margin: 0 0 14px 14px; }
 .page-content p { padding-bottom: 18px; }
 
+.post-thumnail { padding-bottom: 20px; }
+
 .comments-area { border-top: 1px solid {$theme_color}; padding-top: 20px; }
 .comments-title { font-weight: bold; }
 .comment-list,

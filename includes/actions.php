@@ -54,10 +54,12 @@ function vuetiful_styles() {
 add_action( 'template_redirect', 'vuetiful_styles', 1 );
 
 function vuetiful_admin_enqueue_scripts() {
+	wp_enqueue_media();
+	
 	$ver  = vuetiful_get_version();
 	$root = esc_url( get_stylesheet_directory_uri() );
 
-	wp_enqueue_style( 'vuetiful-admin-styles', $root . '/lib/admin/style.css', false, $ver );
+	wp_enqueue_style( 'vuetiful-admin-styles', $root . '/lib/admin/admin.css', false, $ver );
 	
 	wp_enqueue_script( 'vue', $root . '/js/vue.min.js', false, $ver, true );
 	wp_enqueue_script( 'vuetiful-admin', $root . '/lib/admin/app.js', array( 'vue' ), $ver, true );
