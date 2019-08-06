@@ -3,7 +3,7 @@
 /**
  * Removes dashes and underscores from a string and capitalizes words
  * 
- * @param  text $text
+ * @param  string $text
  * 
  * @return string
  */
