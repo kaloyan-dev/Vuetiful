@@ -5,6 +5,11 @@ namespace Vuetiful;
 class Module_Manager {
 	static $modules = array();
 
+	/**
+	 * Creates an instance of the module manager
+	 * 
+	 * @return object
+	 */
 	public static function instance() {
 		static $instance;
 
@@ -15,6 +20,11 @@ class Module_Manager {
 		return $instance;
 	}
 
+	/**
+	 * Creates a list of the available modules
+	 * 
+	 * @return array
+	 */
 	public function get_modules() {
 		self::$modules  = array();
 
@@ -32,6 +42,11 @@ class Module_Manager {
 		return self::$modules;
 	}
 
+	/**
+	 * Loads the available modules
+	 * 
+	 * @return void
+	 */
 	public function load_modules() {
 		$modules_list   = $this->get_modules();
 		$loaded_modules = get_option( 'vuetiful-modules' );

@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * Removes dashes and underscores from a string and capitalizes words
+ * 
+ * @param  text $text
+ * 
+ * @return string
+ */
 function vuetiful_beautify( $text ) {
 	return ucwords( preg_replace( '~[-|_]~', ' ', sanitize_title( $text ) ) );
 }
 
+/**
+ * Gets the option names used throughout the theme
+ * 
+ * @return array
+ */
 function vuetiful_get_option_names() {
 	return array(
 		'vuetiful-theme-color' => 'vuetiful_theme_color',
@@ -12,6 +24,12 @@ function vuetiful_get_option_names() {
 	);
 }
 
+/**
+ * Sets the list of available theme colors and their names
+ * (can be modified via "vuetiful_theme_colors" filter)
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_colors() {
 	return apply_filters( 'vuetiful_theme_colors', array(
 		'turquoise'     => array( 'Turquoise', '#1abc9c' ),
@@ -37,6 +55,11 @@ function vuetiful_get_theme_colors() {
 	) );
 }
 
+/**
+ * Sets up theme data for usage with the custom Vue pagination
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_data() {
 	global $wp_query;
 
@@ -86,6 +109,11 @@ function vuetiful_get_theme_data() {
 	);
 }
 
+/**
+ * Sets up the data for the admin panel that Vue uses
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_admin_data() {
 	$theme_color       = get_option( 'vuetiful-theme-color' );
 	$theme_colors      = vuetiful_get_theme_colors();
@@ -107,10 +135,22 @@ function vuetiful_get_theme_admin_data() {
 	);
 }
 
+/**
+ * Returns the current theme version
+ * 
+ * @return string
+ */
 function vuetiful_get_version() {
 	return '1.0.0';
 }
 
+/**
+ * Safe(er) server request method
+ * 
+ * @param  boolean|string $name
+ * 
+ * @return mixed
+ */
 function vuetiful_request( $name = false ) {
 
 	if ( ! $name ) {
