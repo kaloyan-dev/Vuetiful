@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Handles the update of theme options
+ * 
+ * @return void
+ */
 function vutiful_update_options() {	
 	if ( ! vuetiful_request( 'vuetiful_update_options_field' ) ) {
 		return;
@@ -17,6 +22,11 @@ function vutiful_update_options() {
 }
 add_action( 'admin_init', 'vutiful_update_options' );
 
+/**
+ * Adds the theme options page to the WordPress admin
+ * 
+ * @return void
+ */
 function vuetiful_admin_add() {
 	add_theme_page(
 		__( 'Vuetiful Options', 'vuetiful' ),
@@ -28,10 +38,23 @@ function vuetiful_admin_add() {
 }
 add_action( 'admin_menu', 'vuetiful_admin_add' );
 
+/**
+ * Renders the admin template
+ * 
+ * @return void
+ */
 function vuetiful_admin_render() {
 	get_template_part( 'lib/admin/template' );
 }
 
+/**
+ * Sets up post count to -1 to get all the posts in the main query
+ * since that is needed for the custom pagination functionality.
+ * 
+ * @param  object $query
+ * 
+ * @return void
+ */
 function vuetiful_pre_get_posts( $query ) {
 
 	if ( is_admin() || ! $query->is_main_query() ) {
@@ -42,6 +65,11 @@ function vuetiful_pre_get_posts( $query ) {
 }
 add_action( 'pre_get_posts', 'vuetiful_pre_get_posts' );
 
+/**
+ * Creates a dynamic CSS "file" for the theme color
+ * 
+ * @return void
+ */
 function vuetiful_styles() {
 	if ( ! isset( $_GET['vuetiful-styles'] ) ) {
 		return;
@@ -53,6 +81,12 @@ function vuetiful_styles() {
 }
 add_action( 'template_redirect', 'vuetiful_styles', 1 );
 
+
+/**
+ * Enqueues scripts and styles in the admin panel
+ * 
+ * @return void
+ */
 function vuetiful_admin_enqueue_scripts() {
 	wp_enqueue_media();
 	
@@ -70,6 +104,11 @@ function vuetiful_admin_enqueue_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'vuetiful_admin_enqueue_scripts' );
 
+/**
+ * Enqueues scripts and styles in the front-end
+ * 
+ * @return void
+ */
 function vuetiful_wp_enqueue_scripts() {
 	$ver  = vuetiful_get_version();
 	$root = esc_url( get_stylesheet_directory_uri() );
@@ -88,6 +127,11 @@ function vuetiful_wp_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'vuetiful_wp_enqueue_scripts' );
 
+/**
+ * Initializes the theme widgets
+ * 
+ * @return void
+ */
 function vuetiful_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Page Sidebar', 'vuetiful' ),
@@ -100,6 +144,11 @@ function vuetiful_widgets_init() {
 }
 add_action( 'widgets_init', 'vuetiful_widgets_init' );
 
+/**
+ * Setups the custom favicon configured in theme options
+ * 
+ * @return void
+ */
 function vuetiful_wp_head() {
 	$favicon_id = get_option( 'vuetiful-favicon' );
 

@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * Removes dashes and underscores from a string and capitalizes words
+ * 
+ * @param  text $text
+ * 
+ * @return string
+ */
 function vuetiful_beautify( $text ) {
 	return ucwords( preg_replace( '~[-|_]~', ' ', sanitize_title( $text ) ) );
 }
 
+/**
+ * Gets the option names used throughout the theme
+ * 
+ * @return array
+ */
 function vuetiful_get_option_names() {
 	return array(
 		'vuetiful-theme-color' => 'vuetiful_theme_color',
@@ -12,6 +24,12 @@ function vuetiful_get_option_names() {
 	);
 }
 
+/**
+ * Sets the list of available theme colors and their names
+ * (can be modified via "vuetiful_theme_colors" filter)
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_colors() {
 	return apply_filters( 'vuetiful_theme_colors', array(
 		'turquoise'     => array( 'Turquoise', '#1abc9c' ),
@@ -37,6 +55,11 @@ function vuetiful_get_theme_colors() {
 	) );
 }
 
+/**
+ * Sets up theme data for usage with the custom Vue pagination
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_data() {
 	global $wp_query;
 
@@ -58,21 +81,23 @@ function vuetiful_get_theme_data() {
 			$post_pages++;
 		}
 
-		$post_id      = $p->ID;
-		$post_title   = $p->post_title;
-		$post_content = strip_tags( $p->post_content );
-		$post_excerpt = wp_trim_words( $post_content, 55 );
-		$post_trimmed = ( strip_tags( $post_content ) !== $post_excerpt );
-		$post_url     = get_permalink( $post_id );
-		$post_page    = $post_pages;
+		$post_id        = $p->ID;
+		$post_title     = $p->post_title;
+		$post_content   = strip_tags( $p->post_content );
+		$post_excerpt   = wp_trim_words( $post_content, 55 );
+		$post_trimmed   = ( strip_tags( $post_content ) !== $post_excerpt );
+		$post_url       = get_permalink( $post_id );
+		$post_page      = $post_pages;
+		$post_thumbnail = get_the_post_thumbnail_url( $p );
 
 		$posts_data[] = array(
-			'title'   => $post_title,
-			'content' => $post_trimmed ? wpautop( $post_excerpt ) : wpautop( $post_content ),
-			'url'     => $post_url,
-			'page'    => $post_page,
-			'trimmed' => $post_trimmed ? 1 : 0,
-			'class'   => implode( ' ', get_post_class( '', $post_id ) ),
+			'title'     => $post_title,
+			'content'   => $post_trimmed ? wpautop( $post_excerpt ) : wpautop( $post_content ),
+			'url'       => $post_url,
+			'page'      => $post_page,
+			'trimmed'   => $post_trimmed ? 1 : 0,
+			'class'     => implode( ' ', get_post_class( '', $post_id ) ),
+			'thumbnail' => $post_thumbnail ? $post_thumbnail : '',
 		);
 
 		$post_count++;
@@ -84,6 +109,11 @@ function vuetiful_get_theme_data() {
 	);
 }
 
+/**
+ * Sets up the data for the admin panel that Vue uses
+ * 
+ * @return array
+ */
 function vuetiful_get_theme_admin_data() {
 	$theme_color       = get_option( 'vuetiful-theme-color' );
 	$theme_colors      = vuetiful_get_theme_colors();
@@ -105,10 +135,22 @@ function vuetiful_get_theme_admin_data() {
 	);
 }
 
+/**
+ * Returns the current theme version
+ * 
+ * @return string
+ */
 function vuetiful_get_version() {
 	return '1.0.0';
 }
 
+/**
+ * Safe(er) server request method
+ * 
+ * @param  boolean|string $name
+ * 
+ * @return mixed
+ */
 function vuetiful_request( $name = false ) {
 
 	if ( ! $name ) {

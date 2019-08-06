@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Updates the "read more" part of the post excerpt
+ * 
+ * @return string
+ */
 function vuetiful_excerpt_more() {
 	return ' ... <a class="read-more" href="' . get_permalink() . '">' . __( 'read more &raquo;', 'vuetiful' ) . '</a>';
 }
