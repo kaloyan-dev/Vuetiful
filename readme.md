@@ -1,4 +1,4 @@
-## Vuetiful (pre-alpha)
+## Vuetiful
 A simple and fast theme for WordPress built using [Vue.js](http://vuejs.org/).
 
 #### Current features
